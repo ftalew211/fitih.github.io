@@ -41,6 +41,7 @@
         linear-gradient(140deg, #02123a 0%, #052f7d 55%, #0a4bac 100%);
       background-attachment: fixed;
       scroll-behavior: smooth;
+      line-height: 1.6;
     }
 
     ::selection {
@@ -56,11 +57,13 @@
     a:hover,
     a:focus-visible {
       color: var(--accent-cyan);
+      text-decoration: underline;
     }
 
     img {
       display: block;
       max-width: 100%;
+      height: auto;
     }
 
     header {
@@ -70,6 +73,7 @@
       background: var(--nav-bg);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(140, 197, 255, 0.12);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .nav {
@@ -90,6 +94,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      color: var(--accent-cyan);
     }
 
     .nav__links {
@@ -105,13 +110,15 @@
     .nav__links a {
       padding: 0.55rem 0.9rem;
       border-radius: 999px;
-      transition: background-color var(--transition), color var(--transition);
+      transition: background-color var(--transition), color var(--transition), transform var(--transition);
+      font-weight: 500;
     }
 
     .nav__links a:hover,
     .nav__links a:focus-visible {
       background-color: rgba(255, 255, 255, 0.16);
       color: #fff;
+      transform: translateY(-2px);
     }
 
     .nav__toggle {
@@ -165,6 +172,10 @@
       line-height: 1.15;
       margin: 0 0 1.1rem;
       text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+      background: linear-gradient(135deg, var(--accent-cyan) 0%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero__text p {
@@ -185,6 +196,24 @@
       font-weight: 600;
       box-shadow: var(--shadow-lift);
       transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left var(--transition);
+    }
+
+    .hero__cta:hover::before,
+    .hero__cta:focus-visible::before {
+      left: 100%;
     }
 
     .hero__cta:hover,
@@ -208,6 +237,12 @@
       background: linear-gradient(145deg, rgba(100, 181, 246, 0.45) 0%, rgba(8, 34, 96, 0.85) 100%);
       box-shadow: var(--shadow-lift);
       overflow: hidden;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     .portrait-frame::before {
@@ -248,6 +283,12 @@
       padding: clamp(1.8rem, 3vw, 2.25rem);
       backdrop-filter: blur(18px);
       box-shadow: var(--shadow-soft);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lift);
     }
 
     .grid {
@@ -262,6 +303,7 @@
     h2 {
       font-size: clamp(1.7rem, 3vw, 2.25rem);
       margin: 0 0 1.6rem;
+      color: var(--accent-cyan);
     }
 
     h3 {
@@ -296,6 +338,11 @@
       font-size: 0.88rem;
       font-weight: 500;
       letter-spacing: 0.01em;
+      transition: background-color var(--transition);
+    }
+
+    .tag:hover {
+      background: rgba(180, 213, 255, 0.25);
     }
 
     .experience__item + .experience__item {
@@ -307,6 +354,7 @@
     .experience__role {
       font-weight: 600;
       font-size: 1.05rem;
+      color: var(--accent-gold);
     }
 
     .experience__meta {
@@ -351,6 +399,7 @@
       margin: 0;
       font-size: 1.05rem;
       line-height: 1.35;
+      color: var(--accent-cyan);
     }
 
     .lesson__status {
@@ -375,6 +424,7 @@
       border-radius: 999px;
       overflow: hidden;
       background: rgba(255, 255, 255, 0.16);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .progress-bar span {
@@ -384,6 +434,7 @@
       border-radius: inherit;
       background: linear-gradient(90deg, #6bdcff 0%, #c0e7ff 100%);
       transition: width 0.45s ease-in-out;
+      box-shadow: 0 0 10px rgba(107, 220, 255, 0.5);
     }
 
     .course-footer {
@@ -397,6 +448,7 @@
       border-radius: 18px;
       padding: 1.5rem;
       color: var(--text-muted);
+      backdrop-filter: blur(10px);
     }
 
     .contact-card {
@@ -421,6 +473,11 @@
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.14);
       color: rgba(237, 245, 255, 0.9);
+      transition: background-color var(--transition);
+    }
+
+    .contact-list li:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
 
     .contact-list span {
@@ -433,10 +490,13 @@
       text-align: center;
       color: var(--text-muted);
       font-size: 0.92rem;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
     }
 
     footer a {
       color: var(--accent-cyan);
+      font-weight: 600;
     }
 
     @media (max-width: 760px) {
@@ -488,6 +548,14 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero__text h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -513,7 +581,7 @@
         <li><a href="#profile">Profile</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#course">AI Bootcamp</a></li>
-        <li><a href="#contact">Organization Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </header>
@@ -529,6 +597,9 @@
           </p>
           <a class="hero__cta" href="#course">
             Explore My AI Bootcamp Progress
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
           </a>
         </div>
 
@@ -536,10 +607,9 @@
           <div class="portrait-frame">
             <img
               class="hero__portrait"
-              src="assets/ftalew-portrait.jpg"
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NDAiIGhlaWdodD0iNzIwIiB2aWV3Qm94PSIwIDAgNjQwIDcyMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMmE2ZGY0Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDIxYjc5Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI3MjAiIGZpbGw9InVybCgjZ3JhZCkiIHJ4PSI0OCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTUlIiBmb250LXNpemU9IjIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2UyZWRmZiIgZm9udC1mYW1pbHk9IkludGVyLCBIZWx2ZXRpY2EsIEFyaWFsIiBmb250LXdlaWdodD0iNzAwIj5GRCZuYnNwOzwvdGV4dD48L3N2Zz4="
               alt="Portrait of Ftalew Dagnaw Gebreyesus"
               loading="lazy"
-              onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NDAiIGhlaWdodD0iNzIwIiB2aWV3Qm94PSIwIDAgNjQwIDcyMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMmE2ZGY0Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDIxYjc5Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI3MjAiIGZpbGw9InVybCgjZ3JhZCkiIHJ4PSI0OCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTUlIiBmb250LXNpemU9IjIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2UyZWRmZiIgZm9udC1mYW1pbHk9IkludGVyLCBIZWx2ZXRpY2EsIEFyaWFsIiBmb250LXdlaWdodD0iNzAwIj5GRCZuYnNwOzwvdGV4dD48L3N2Zz4=';"
             />
           </div>
         </div>
@@ -793,21 +863,29 @@
 
     <section class="section" id="contact">
       <div class="container card contact-card">
-        <h2>Current Organization Contact</h2>
+        <h2>Contact Information</h2>
         <p>
-          Ministry of Health, Federal Democratic Republic of Ethiopia – primary liaison for Monitoring &amp; Evaluation initiatives, health information system strengthening, and national quality programs.
+          Reach out for collaborations, inquiries, or to discuss health information systems and M&amp;E initiatives.
         </p>
         <ul class="contact-list">
           <li>
-            <span>Address:</span>
-            Swaziland Street, Gulele Sub-City, Addis Ababa, Ethiopia
+            <span>Email:</span>
+            ftalewd211@gmail.com
           </li>
           <li>
             <span>Phone:</span>
+            +251911061646
+          </li>
+          <li>
+            <span>Organization Address:</span>
+            Swaziland Street, Gulele Sub-City, Addis Ababa, Ethiopia
+          </li>
+          <li>
+            <span>Organization Phone:</span>
             +251-11-551-8080
           </li>
           <li>
-            <span>Email:</span>
+            <span>Organization Email:</span>
             moh@ethionet.et
           </li>
         </ul>
@@ -866,36 +944,4 @@
   </script>
 </body>
 </html>
-  <script>
-    // Mobile navigation toggle logic
-    const navToggle = document.querySelector('.nav__toggle');
-    const navLinks = document.querySelector('.nav__links');
 
-    navToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', isOpen);
-    });
-
-    // Course progress tracking
-    const checkboxes = document.querySelectorAll('.lesson-checkbox');
-    const overallProgress = document.getElementById('overall-progress');
-    const overallPercentage = document.getElementById('overall-percentage');
-
-    function updateProgress() {
-      const completed = Array.from(checkboxes).filter(box => box.checked).length;
-      const total = checkboxes.length;
-      const percent = Math.round((completed / total) * 100);
-
-      overallProgress.style.width = `${percent}%`;
-      overallPercentage.textContent = percent;
-    }
-
-    // Initialize progress and bind events
-    checkboxes.forEach(box => {
-      box.addEventListener('change', updateProgress);
-    });
-
-    updateProgress();
-  </script>
-</body>
-</html>
