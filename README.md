@@ -554,6 +554,9 @@
 
     .project-cta {
       margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .project-footer {
@@ -563,6 +566,126 @@
       font-size: 0.9rem;
       padding-top: 1rem;
       border-top: 1px solid var(--card-border);
+    }
+
+    .report-container {
+      width: 100%;
+      margin-top: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--card-border);
+    }
+
+    .report-tabs {
+      display: flex;
+      background: rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .report-tab {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--transition);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .report-tab.active {
+      background: rgba(107, 220, 255, 0.1);
+      color: var(--accent-cyan);
+      border-bottom: 2px solid var(--accent-cyan);
+    }
+
+    .report-tab:hover {
+      background: rgba(107, 220, 255, 0.05);
+    }
+
+    .report-content {
+      padding: 1.5rem;
+      min-height: 400px;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .report-text {
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+
+    .report-text h3 {
+      color: var(--accent-gold);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .report-text p {
+      margin-bottom: 1rem;
+    }
+
+    .report-text ul {
+      margin: 1rem 0;
+    }
+
+    .report-text li {
+      margin-bottom: 0.5rem;
+    }
+
+    .access-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      background: rgba(76, 175, 80, 0.2);
+      color: #4caf50;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-left: 0.5rem;
+    }
+
+    .pdf-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all var(--transition);
+      cursor: pointer;
+      border: none;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .pdf-button-primary {
+      background: linear-gradient(135deg, #6bdcff 0%, #4aa8ff 100%);
+      color: #01203f;
+    }
+
+    .pdf-button-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-light);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .pdf-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .error-message {
+      background: rgba(244, 67, 54, 0.1);
+      border: 1px solid rgba(244, 67, 54, 0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      color: #ff9800;
+      margin-top: 1rem;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 760px) {
@@ -612,6 +735,11 @@
         gap: 0.5rem;
         text-align: center;
       }
+
+      .report-content {
+        min-height: 300px;
+        max-height: 400px;
+      }
     }
 
     @media (max-width: 580px) {
@@ -636,6 +764,10 @@
 
       .hero__text h1 {
         font-size: clamp(1.8rem, 6vw, 2.5rem);
+      }
+
+      .report-tabs {
+        flex-direction: column;
       }
     }
 
@@ -843,9 +975,15 @@
                 <div class="project-card" style="margin-top: 1rem;">
                   <div class="project-header">
                     <h4 style="color: var(--accent-gold); margin: 0;">GDP per Capita & Life Expectancy Analysis</h4>
-                    <div style="display: flex; gap: 0.5rem;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
                       <span class="tag">Data Analysis</span>
                       <span class="tag">Public Health</span>
+                      <span class="access-badge">
+                        <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        Public Access
+                      </span>
                     </div>
                   </div>
                   
@@ -865,12 +1003,59 @@
                         <li>Life expectancy ranges from approximately 55 to 85 years globally</li>
                       </ul>
                       
+                      <div class="report-container">
+                        <div class="report-tabs">
+                          <button class="report-tab active" onclick="switchTab('gdp', 'summary')">Executive Summary</button>
+                          <button class="report-tab" onclick="switchTab('gdp', 'methods')">Methods</button>
+                          <button class="report-tab" onclick="switchTab('gdp', 'findings')">Key Findings</button>
+                          <button class="report-tab" onclick="switchTab('gdp', 'reflection')">Reflection</button>
+                        </div>
+                        <div class="report-content">
+                          <div id="gdp-summary" class="report-text">
+                            <h3>Executive Summary</h3>
+                            <p>This analysis examines the relationship between GDP per capita and life expectancy across 193 countries using 2020 data from Gapminder. The study reveals a strong positive correlation between economic prosperity and population health outcomes, with particularly pronounced effects at lower income levels.</p>
+                            <p>The logarithmic relationship demonstrates that small increases in GDP per capita at lower income levels yield substantial improvements in life expectancy, while the benefits diminish at higher income levels, suggesting a plateau effect. This pattern underscores the critical importance of economic development for basic health improvements while highlighting that wealth alone cannot indefinitely extend lifespan.</p>
+                            <p>Geographic analysis shows consistent patterns across regions, with developed nations in North America, Western Europe, and Oceania exhibiting both higher GDP per capita and longer life expectancies. The findings have important implications for global health policy and development strategies.</p>
+                          </div>
+                          <div id="gdp-methods" class="report-text" style="display: none;">
+                            <h3>Methods</h3>
+                            <p><strong>Data Source:</strong> Gapminder's open data repository provided country-level statistics for 2020, including 193 countries with complete data for both indicators.</p>
+                            <p><strong>Variables:</strong> GDP per capita measured in USD and life expectancy measured in years.</p>
+                            <p><strong>Analysis Approach:</strong> A scatter plot was created to visualize the relationship, with GDP per capita displayed on a logarithmic scale to better capture variation at lower income levels. The analysis included statistical correlation assessment and geographic mapping to identify spatial patterns.</p>
+                            <p><strong>Tools:</strong> The analysis was conducted using Julius AI platform for data processing and visualization, enabling rapid exploration without requiring extensive coding expertise.</p>
+                          </div>
+                          <div id="gdp-findings" class="report-text" style="display: none;">
+                            <h3>Key Findings</h3>
+                            <p><strong>Strong Positive Correlation:</strong> Countries with higher economic output consistently show higher life expectancy, indicating that economic development is closely tied to health outcomes.</p>
+                            <p><strong>Logarithmic Relationship:</strong> The relationship is strongest at lower GDP levels, where small increases in GDP per capita are associated with substantial gains in life expectancy.</p>
+                            <p><strong>Diminishing Returns:</strong> At higher GDP levels (above ~$20,000), additional wealth produces smaller improvements in life expectancy, suggesting a plateau effect.</p>
+                            <p><strong>Range:</strong> Life expectancy ranges from approximately 55 to 85 years, while GDP per capita spans from under $1,000 to over $100,000.</p>
+                            <p><strong>Geographic Patterns:</strong> Higher values are concentrated in North America, Western Europe, and parts of the Middle East and Oceania, with similar geographic patterns for both indicators.</p>
+                          </div>
+                          <div id="gdp-reflection" class="report-text" style="display: none;">
+                            <h3>Reflection</h3>
+                            <p>As a statistician and Public Health specialist with extensive experience of M&E, such use of Generative AI with no-code data analysis has huge implications in maximizing the utilization of data in short time to facilitate timely decision-making in the Health sector.</p>
+                            <p>In our context, there are huge datasets from multiple data sources that such platforms motivate me to apply it in my current role at Ministry of Health. Very helpful and feel encouraged!</p>
+                            <p><strong>What was difficult?</strong> Navigating the setting up of the Julius AI for the first time was somewhat time-consuming.</p>
+                            <p><strong>What was surprising?</strong> I am surprised how LLM reached the level of simplifying data analysis tasks shortly.</p>
+                            <p><strong>What did you learn?</strong> How data analysis becomes much easier with LLM and the importance of basic statistical background and coding to fully utilize the LLM gifts.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
                       <div class="project-cta">
-                        <a href="https://z-cdn-media.chatglm.cn/files/52f8bf66-7bd9-4aaf-baef-e2ef0b1d3ba3_Ftalew_Dagnaw_RELATIONSHIP%20BETWEEN%20GDPS%20PER%20CAPITA%20AND%20LIFE%20EXPECTANCY.pdf?auth_key=1761857702-a400d100952a4396974dc65942582f90-0-741eaa3c255c464b5b9ea51ccaaf8b56" class="hero__cta" target="_blank" rel="noopener">
-                          <span>View Full Report</span>
+                        <a href="https://docs.google.com/gview?embedded=1&url=https://z-cdn-media.chatglm.cn/files/52f8bf66-7bd9-4aaf-baef-e2ef0b1d3ba3_Ftalew_Dagnaw_RELATIONSHIP%20BETWEEN%20GDPS%20PER%20CAPITA%20AND%20LIFE%20EXPECTANCY.pdf" class="pdf-button pdf-button-primary" target="_blank">
                           <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
                           </svg>
+                          View Full Report
+                        </a>
+                        <a href="https://r.jina.ai/http://z-cdn-media.chatglm.cn/files/52f8bf66-7bd9-4aaf-baef-e2ef0b1d3ba3_Ftalew_Dagnaw_RELATIONSHIP%20BETWEEN%20GDPS%20PER%20CAPITA%20AND%20LIFE%20EXPECTANCY.pdf" class="pdf-button pdf-button-secondary" target="_blank">
+                          <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                          </svg>
+                          Alternative View
                         </a>
                       </div>
                     </div>
@@ -894,9 +1079,15 @@
                 <div class="project-card" style="margin-top: 1rem;">
                   <div class="project-header">
                     <h4 style="color: var(--accent-gold); margin: 0;">Job Market Analysis Project</h4>
-                    <div style="display: flex; gap: 0.5rem;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
                       <span class="tag">Data Analysis</span>
                       <span class="tag">LLM APIs</span>
+                      <span class="access-badge">
+                        <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        Public Access
+                      </span>
                     </div>
                   </div>
                   
@@ -916,12 +1107,61 @@
                         <li>R-only positions show the lowest mean salary ($64,533) with the least variability</li>
                       </ul>
                       
+                      <div class="report-container">
+                        <div class="report-tabs">
+                          <button class="report-tab active" onclick="switchTab('job', 'summary')">Executive Summary</button>
+                          <button class="report-tab" onclick="switchTab('job', 'findings')">Key Findings</button>
+                          <button class="report-tab" onclick="switchTab('job', 'interpretation')">Interpretation</button>
+                          <button class="report-tab" onclick="switchTab('job', 'reflection')">Reflection</button>
+                        </div>
+                        <div class="report-content">
+                          <div id="job-summary" class="report-text">
+                            <h3>Executive Summary</h3>
+                            <p>This analysis of 400 data analyst job postings reveals surprising insights about the relationship between experience, programming skills, and compensation in the data analyst job market. Contrary to conventional expectations, the study found a remarkably weak correlation between years of experience and median salary (correlation = 0.05).</p>
+                            <p>Programming language proficiency emerged as a more significant salary determinant, with positions requiring both Python and R commanding the highest mean salary at $75,471. Python-only roles closely followed at $75,100, while positions requiring neither language still maintained respectable salaries averaging $70,433.</p>
+                            <p>Notably, R-only positions showed the lowest mean salary ($64,533) with the least variability, suggesting these may represent more specialized or niche roles. These findings challenge traditional assumptions about career progression in data analytics and highlight the growing importance of versatile programming skills in the field.</p>
+                          </div>
+                          <div id="job-findings" class="report-text" style="display: none;">
+                            <h3>Key Findings</h3>
+                            <p><strong>Experience vs. Salary:</strong> The scatter plot reveals a surprisingly weak relationship between years of experience and median salary (correlation = 0.05). While we might expect salaries to increase substantially with experience, the data shows considerable salary variation at every experience level.</p>
+                            <p><strong>Programming Language Impact:</strong> The box plot shows meaningful differences in salary distributions across programming language categories:</p>
+                            <ul>
+                              <li>Jobs requiring both R and Python: $75,471 (highest mean salary)</li>
+                              <li>Python-only positions: $75,100 (second highest)</li>
+                              <li>Positions requiring neither language: $70,433 (respectable middle range)</li>
+                              <li>R-only positions: $64,533 (lowest mean salary with least variability)</li>
+                            </ul>
+                            <p>This suggests that Python skills, either alone or combined with R, are associated with higher-paying data analyst roles.</p>
+                          </div>
+                          <div id="job-interpretation" class="report-text" style="display: none;">
+                            <h3>Interpretation</h3>
+                            <p><strong>Experience Paradox:</strong> The weak correlation between experience and salary suggests that factors other than years of experience—such as industry, location, company size, or specific technical skills—may play a more significant role in determining data analyst salaries. The relatively flat trend line indicates that entry-level positions and those requiring 10+ years of experience have similar salary ranges.</p>
+                            <p><strong>Programming Language Premium:</strong> Python's dominance in the salary hierarchy reflects its versatility and widespread adoption in data science. The premium for dual-language proficiency (Python + R) suggests employers value analysts who can work across different analytical ecosystems. The lower salaries for R-only positions may indicate these roles are more academic or research-focused rather than commercial.</p>
+                            <p><strong>Market Dynamics:</strong> The respectable salaries for positions requiring neither programming language suggest that domain expertise and business acumen remain valuable, even without technical programming skills.</p>
+                          </div>
+                          <div id="job-reflection" class="report-text" style="display: none;">
+                            <h3>Reflection</h3>
+                            <p>I found the session very interesting and helpful in exploring how we can interact with LLM in one platform and conduct text analysis from large datasets in a couple of minutes that it would have taken longer duration otherwise.</p>
+                            <p>I found the section straightforward in following the steps in the analysis. The challenging part is somehow in choosing the right model and maybe in our case easily securing access in keys.</p>
+                            <p>I found this interesting how LLM is used to conduct job market data analysis and how much it gives huge opportunity to take decision-making in both government policy setting and academic institutions capacity building efforts.</p>
+                            <p>The ability to quickly analyze 400 job postings and derive meaningful insights demonstrates the power of AI-assisted data analysis for informing career decisions and educational program development.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
                       <div class="project-cta">
-                        <a href="https://z-cdn-media.chatglm.cn/files/52f8bf66-7bd9-4aaf-baef-e2ef0b1d3ba3_WORKSHOP%203%20Analyzing%20Job%20Market%20Data.pdf?auth_key=1761857702-a400d100952a4396974dc65942582f90-0-741eaa3c255c464b5b9ea51ccaaf8b56" class="hero__cta" target="_blank" rel="noopener">
-                          <span>View Full Report</span>
+                        <a href="https://docs.google.com/gview?embedded=1&url=https://z-cdn-media.chatglm.cn/files/52f8bf66-7bd9-4aaf-baef-e2ef0b1d3ba3_WORKSHOP%203%20Analyzing%20Job%20Market%20Data.pdf" class="pdf-button pdf-button-primary" target="_blank">
                           <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
                           </svg>
+                          View Full Report
+                        </a>
+                        <a href="https://r.jina.ai/http://z-cdn-media.chatglm.cn/files/52f8bf66-7bd9-4aaf-baef-e2ef0b1d3ba3_WORKSHOP%203%20Analyzing%20Job%20Market%20Data.pdf" class="pdf-button pdf-button-secondary" target="_blank">
+                          <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                          </svg>
+                          Alternative View
                         </a>
                       </div>
                     </div>
@@ -1100,6 +1340,27 @@
     });
 
     updateProgress();
+    
+    // Tab switching function
+    function switchTab(report, tabName) {
+      // Hide all content for this report
+      const contents = document.querySelectorAll(`[id^="${report}-"]`);
+      contents.forEach(content => {
+        content.style.display = 'none';
+      });
+      
+      // Remove active class from all tabs for this report
+      const tabs = document.querySelectorAll(`.report-tab`);
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      // Show selected content
+      document.getElementById(`${report}-${tabName}`).style.display = 'block';
+      
+      // Add active class to clicked tab
+      event.target.classList.add('active');
+    }
   </script>
 </body>
 </html>
