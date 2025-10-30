@@ -499,6 +499,72 @@
       font-weight: 600;
     }
 
+    .project-card {
+      background: rgba(5, 28, 96, 0.62);
+      border: 1px solid rgba(112, 181, 254, 0.28);
+      border-radius: 18px;
+      padding: 1.35rem;
+      display: grid;
+      gap: 0.95rem;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-4px);
+      box-shadow: 0 26px 45px rgba(5, 55, 135, 0.42);
+      border-color: rgba(171, 219, 255, 0.45);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .project-content {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .project-portrait {
+      width: 180px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 2px solid var(--card-border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .project-description h4 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: var(--accent-gold);
+    }
+
+    .project-cta {
+      margin-top: 1.5rem;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--card-border);
+    }
+
     @media (max-width: 760px) {
       .nav__toggle {
         display: inline-flex;
@@ -530,6 +596,21 @@
 
       .nav__links a {
         width: 100%;
+      }
+
+      .project-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .project-portrait {
+        margin: 0 auto;
+      }
+      
+      .project-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
       }
     }
 
@@ -593,7 +674,7 @@
           <span class="hero__eyebrow">Health Systems · Insights · Equity</span>
           <h1>Transforming Health Systems with Data-Driven Insight</h1>
           <p>
-            I am Ftalew Dagnaw Gebreyesus, a Senior Monitoring &amp; Evaluation Advisor at Ethiopia’s Ministry of Health. With over 15 years of experience leading national health information systems, program evaluations, and quality improvement initiatives, I align data ecosystems with strategic priorities to elevate public health outcomes.
+            I am Ftalew Dagnaw Gebreyesus, a Senior Monitoring & Evaluation Advisor at Ethiopia's Ministry of Health. With over 15 years of experience leading national health information systems, program evaluations, and quality improvement initiatives, I align data ecosystems with strategic priorities to elevate public health outcomes.
           </p>
           <a class="hero__cta" href="#course">
             Explore My AI Bootcamp Progress
@@ -607,7 +688,7 @@
           <div class="portrait-frame">
             <img
               class="hero__portrait"
-              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NDAiIGhlaWdodD0iNzIwIiB2aWV3Qm94PSIwIDAgNjQwIDcyMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMmE2ZGY0Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDIxYjc5Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI3MjAiIGZpbGw9InVybCgjZ3JhZCkiIHJ4PSI0OCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTUlIiBmb250LXNpemU9IjIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2UyZWRmZiIgZm9udC1mYW1pbHk9IkludGVyLCBIZWx2ZXRpY2EsIEFyaWFsIiBmb250LXdlaWdodD0iNzAwIj5GRCZuYnNwOzwvdGV4dD48L3N2Zz4="
+              src="https://z-cdn-media.chatglm.cn/files/52f8bf66-7bd9-4aaf-baef-e2ef0b1d3ba3_Ftalew%20Picture.png?auth_key=1761857702-a400d100952a4396974dc65942582f90-0-741eaa3c255c464b5b9ea51ccaaf8b56"
               alt="Portrait of Ftalew Dagnaw Gebreyesus"
               loading="lazy"
             />
@@ -621,12 +702,12 @@
         <article class="card">
           <h2>Professional Snapshot</h2>
           <p>
-            Results-driven Monitoring &amp; Evaluation professional with a Master of Public Health and a B.Sc. in Statistics. I specialize in designing, implementing, and optimizing M&amp;E frameworks across national health programs, leveraging platforms like DHIS2 and Power BI to strengthen data quality, equity, and decision-making.
+            Results-driven Monitoring & Evaluation professional with a Master of Public Health and a B.Sc. in Statistics. I specialize in designing, implementing, and optimizing M&E frameworks across national health programs, leveraging platforms like DHIS2 and Power BI to strengthen data quality, equity, and decision-making.
           </p>
           <div>
-            <span class="tag">Monitoring &amp; Evaluation Frameworks</span>
+            <span class="tag">Monitoring & Evaluation Frameworks</span>
             <span class="tag">Health Information Systems</span>
-            <span class="tag">Data Analytics &amp; Visualization</span>
+            <span class="tag">Data Analytics & Visualization</span>
             <span class="tag">Strategic Planning</span>
             <span class="tag">Stakeholder Engagement</span>
           </div>
@@ -635,7 +716,7 @@
         <article class="card">
           <h2>Core Competencies</h2>
           <ul>
-            <li>Architecting national M&amp;E systems, dashboards, and reporting pipelines.</li>
+            <li>Architecting national M&E systems, dashboards, and reporting pipelines.</li>
             <li>Customizing DHIS2, HMIS indicators, and data tools aligned with health priorities.</li>
             <li>Leading capacity building, onsite mentorship, and quality assurance programs.</li>
             <li>Integrating maternal, perinatal, and quality metrics into national surveillance systems.</li>
@@ -650,13 +731,13 @@
         <h2>Experience Highlights</h2>
 
         <div class="experience__item">
-          <div class="experience__role">Senior Monitoring &amp; Evaluation Advisor · Ministry of Health, Ethiopia</div>
+          <div class="experience__role">Senior Monitoring & Evaluation Advisor · Ministry of Health, Ethiopia</div>
           <div class="experience__meta">
             <span>July 2019 – Present</span>
             <span>Addis Ababa, Ethiopia</span>
           </div>
           <ul>
-            <li>Lead design and execution of M&amp;E plans for national healthcare quality, innovation, and equity initiatives.</li>
+            <li>Lead design and execution of M&E plans for national healthcare quality, innovation, and equity initiatives.</li>
             <li>Modernized national HMIS indicators, reporting forms, and DHIS2 implementations to match sector priorities.</li>
             <li>Advanced integration of ICD-11, effective coverage metrics, and responsive dashboards to improve data use.</li>
             <li>Guided sub-national mentorship, learning forums, and publications to scale quality improvement practices.</li>
@@ -664,26 +745,26 @@
         </div>
 
         <div class="experience__item">
-          <div class="experience__role">Data Manager &amp; Analyst · World Health Organization Ethiopia</div>
+          <div class="experience__role">Data Manager & Analyst · World Health Organization Ethiopia</div>
           <div class="experience__meta">
             <span>Sept 2014 – July 2019</span>
             <span>Addis Ababa, Ethiopia</span>
           </div>
           <ul>
-            <li>Co-developed the national Maternal &amp; Perinatal Death Surveillance &amp; Response (MPDSR) framework and database.</li>
+            <li>Co-developed the national Maternal & Perinatal Death Surveillance & Response (MPDSR) framework and database.</li>
             <li>Integrated MPDSR with Public Health Emergency Management systems, ensuring actionable intelligence flow.</li>
             <li>Built national capacity through trainings, supportive supervision, and knowledge dissemination.</li>
           </ul>
         </div>
 
         <div class="experience__item">
-          <div class="experience__role">Monitoring &amp; Evaluation Roles · CHAI, USAID Programs, Save the Children, I-TECH</div>
+          <div class="experience__role">Monitoring & Evaluation Roles · CHAI, USAID Programs, Save the Children, I-TECH</div>
           <div class="experience__meta">
             <span>2006 – 2014</span>
             <span>Ethiopia</span>
           </div>
           <ul>
-            <li>Strengthened vaccine program M&amp;E systems, led PMP compliance, and coordinated project evaluations.</li>
+            <li>Strengthened vaccine program M&E systems, led PMP compliance, and coordinated project evaluations.</li>
             <li>Executed routine data quality assessments, surveys, and evidence-based reporting for USAID-funded programs.</li>
             <li>Managed HIV/AIDS data ecosystems, training, and performance analytics across regional facilities.</li>
           </ul>
@@ -693,7 +774,7 @@
 
     <section class="section" id="course">
       <div class="container card">
-        <h2>Generative AI for Work &amp; Research Productivity Bootcamp · 2025 Q4</h2>
+        <h2>Generative AI for Work & Research Productivity Bootcamp · 2025 Q4</h2>
         <p>
           Hands-on 8-week program from <strong>The GRAPH Courses</strong> focused on leveraging AI for productivity, literature reviews, data analysis, chatbot design, workflow automation, and creative media—without requiring coding expertise.
         </p>
@@ -705,7 +786,7 @@
                 <h4 id="program-snapshot">Program Snapshot</h4>
               </div>
               <ul>
-                <li>Duration: 8 weeks · Live &amp; applied learning</li>
+                <li>Duration: 8 weeks · Live & applied learning</li>
                 <li>Includes: 7 Lessons · 1 Topic · 1 Quiz</li>
                 <li>Status: Enrollment confirmed (Course currently closed to new participants)</li>
               </ul>
@@ -753,31 +834,109 @@
 
               <label class="lesson">
                 <div class="lesson__header">
-                  <h4>02 · AI-Assisted Documents &amp; Presentations</h4>
+                  <h4>02 · AI-Assisted Documents & Presentations</h4>
                   <input type="checkbox" class="lesson-checkbox" />
                 </div>
                 <p style="color: var(--text-muted); margin: 0;">
                   Building professional websites, reports, and decks rapidly with co-creative AI tools.
                 </p>
+                <div class="project-card" style="margin-top: 1rem;">
+                  <div class="project-header">
+                    <h4 style="color: var(--accent-gold); margin: 0;">GDP per Capita & Life Expectancy Analysis</h4>
+                    <div style="display: flex; gap: 0.5rem;">
+                      <span class="tag">Data Analysis</span>
+                      <span class="tag">Public Health</span>
+                    </div>
+                  </div>
+                  
+                  <div class="project-content">
+                    <div class="project-image">
+                      <img src="https://z-cdn-media.chatglm.cn/files/52f8bf66-7bd9-4aaf-baef-e2ef0b1d3ba3_Ftalew%20Picture.png?auth_key=1761857702-a400d100952a4396974dc65942582f90-0-741eaa3c255c464b5b9ea51ccaaf8b56" alt="Ftalew Dagnaw" class="project-portrait">
+                    </div>
+                    
+                    <div class="project-description">
+                      <p>This analysis explores the relationship between GDP per capita and life expectancy using Gapminder's data repository, examining how economic prosperity correlates with population health outcomes across countries in 2020.</p>
+                      
+                      <h4>Key Findings:</h4>
+                      <ul>
+                        <li>Strong positive relationship between GDP per capita and life expectancy</li>
+                        <li>Logarithmic relationship strongest at lower GDP levels</li>
+                        <li>Diminishing returns at higher GDP levels (above ~$20,000)</li>
+                        <li>Life expectancy ranges from approximately 55 to 85 years globally</li>
+                      </ul>
+                      
+                      <div class="project-cta">
+                        <a href="https://z-cdn-media.chatglm.cn/files/52f8bf66-7bd9-4aaf-baef-e2ef0b1d3ba3_Ftalew_Dagnaw_RELATIONSHIP%20BETWEEN%20GDPS%20PER%20CAPITA%20AND%20LIFE%20EXPECTANCY.pdf?auth_key=1761857702-a400d100952a4396974dc65942582f90-0-741eaa3c255c464b5b9ea51ccaaf8b56" class="hero__cta" target="_blank" rel="noopener">
+                          <span>View Full Report</span>
+                          <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="project-footer">
+                    <div class="project-date">October 20, 2025</div>
+                    <div class="project-author">By: Ftalew Dagnaw, GRAPH Student</div>
+                  </div>
+                </div>
               </label>
 
               <label class="lesson">
                 <div class="lesson__header">
-                  <h4>Workshop 2 · Automated Data Analysis</h4>
+                  <h4>03 · WORKSHOP 3: Analyzing Job Market Data</h4>
                   <input type="checkbox" class="lesson-checkbox" />
                 </div>
                 <p style="color: var(--text-muted); margin: 0;">
-                  Analyzed Gapminder data to explore relationships between two global indicators using AI tools.
-                  <br />
-                  <a href="https://github.com/ftalew211/fitih.github.io/commit/624d5b476f144f9017ac8dfa98db054778a35fc1#diff-e67cc0f5f787f4d567c186394afbf337af2b40b050f71326780e2bc668b09664" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">
-                    View Report
-                  </a>
+                  Analysis of 400 data analyst job postings to examine relationships between experience, programming skills, and salary expectations.
                 </p>
+                <div class="project-card" style="margin-top: 1rem;">
+                  <div class="project-header">
+                    <h4 style="color: var(--accent-gold); margin: 0;">Job Market Analysis Project</h4>
+                    <div style="display: flex; gap: 0.5rem;">
+                      <span class="tag">Data Analysis</span>
+                      <span class="tag">LLM APIs</span>
+                    </div>
+                  </div>
+                  
+                  <div class="project-content">
+                    <div class="project-image">
+                      <img src="https://z-cdn-media.chatglm.cn/files/52f8bf66-7bd9-4aaf-baef-e2ef0b1d3ba3_Ftalew%20Picture.png?auth_key=1761857702-a400d100952a4396974dc65942582f90-0-741eaa3c255c464b5b9ea51ccaaf8b56" alt="Ftalew Dagnaw" class="project-portrait">
+                    </div>
+                    
+                    <div class="project-description">
+                      <p>This project analyzes 400 job postings for data analyst positions, examining how experience level and programming language skills relate to salary expectations in the data analyst job market.</p>
+                      
+                      <h4>Key Findings:</h4>
+                      <ul>
+                        <li>Surprisingly weak relationship between years of experience and median salary (correlation = 0.05)</li>
+                        <li>Jobs requiring both R and Python have the highest mean salary ($75,471)</li>
+                        <li>Python-only positions closely follow with $75,100 mean salary</li>
+                        <li>R-only positions show the lowest mean salary ($64,533) with the least variability</li>
+                      </ul>
+                      
+                      <div class="project-cta">
+                        <a href="https://z-cdn-media.chatglm.cn/files/52f8bf66-7bd9-4aaf-baef-e2ef0b1d3ba3_WORKSHOP%203%20Analyzing%20Job%20Market%20Data.pdf?auth_key=1761857702-a400d100952a4396974dc65942582f90-0-741eaa3c255c464b5b9ea51ccaaf8b56" class="hero__cta" target="_blank" rel="noopener">
+                          <span>View Full Report</span>
+                          <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="project-footer">
+                    <div class="project-date">October 30, 2025</div>
+                    <div class="project-author">By: Ftalew Dagnaw, GRAPH Student</div>
+                  </div>
+                </div>
               </label>
 
               <label class="lesson">
                 <div class="lesson__header">
-                  <h4>03 · Literature Reviews &amp; Data Exploration</h4>
+                  <h4>04 · Literature Reviews & Data Exploration</h4>
                   <input type="checkbox" class="lesson-checkbox" />
                 </div>
                 <p style="color: var(--text-muted); margin: 0;">
@@ -787,7 +946,7 @@
 
               <label class="lesson">
                 <div class="lesson__header">
-                  <h4>04 · No-Code Dashboards &amp; Insights</h4>
+                  <h4>05 · No-Code Dashboards & Insights</h4>
                   <input type="checkbox" class="lesson-checkbox" />
                 </div>
                 <p style="color: var(--text-muted); margin: 0%;">
@@ -797,7 +956,7 @@
 
               <label class="lesson">
                 <div class="lesson__header">
-                  <h4>05 · Domain-Specific Chatbots</h4>
+                  <h4>06 · Domain-Specific Chatbots</h4>
                   <input type="checkbox" class="lesson-checkbox" />
                 </div>
                 <p style="color: var(--text-muted); margin: 0;">
@@ -807,7 +966,7 @@
 
               <label class="lesson">
                 <div class="lesson__header">
-                  <h4>06 · Automated Workflows</h4>
+                  <h4>07 · Automated Workflows</h4>
                   <input type="checkbox" class="lesson-checkbox" />
                 </div>
                 <p style="color: var(--text-muted); margin: 0;">
@@ -817,7 +976,7 @@
 
               <label class="lesson">
                 <div class="lesson__header">
-                  <h4>07 · AI for Creative Media Production</h4>
+                  <h4>08 · AI for Creative Media Production</h4>
                   <input type="checkbox" class="lesson-checkbox" />
                 </div>
                 <p style="color: var(--text-muted); margin: 0%;">
@@ -865,7 +1024,7 @@
       <div class="container card contact-card">
         <h2>Contact Information</h2>
         <p>
-          Reach out for collaborations, inquiries, or to discuss health information systems and M&amp;E initiatives.
+          Reach out for collaborations, inquiries, or to discuss health information systems and M&E initiatives.
         </p>
         <ul class="contact-list">
           <li>
@@ -944,4 +1103,3 @@
   </script>
 </body>
 </html>
-
