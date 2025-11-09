@@ -820,7 +820,7 @@
           <div class="portrait-frame">
             <img
               class="hero__portrait"
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+              src="WIN_20251109_18_35_25_Pro.jpg"
               alt="Portrait of Ftalew Dagnaw Gebreyesus"
               loading="lazy"
             />
@@ -989,7 +989,7 @@
                   
                   <div class="project-content">
                     <div class="project-image">
-                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Ftalew Dagnaw" class="project-portrait">
+                      <img src="WIN_20251109_18_35_25_Pro.jpg" alt="Ftalew Dagnaw" class="project-portrait">
                     </div>
                     
                     <div class="project-description">
@@ -1018,23 +1018,28 @@
                           </div>
                           <div id="gdp-methods" class="report-text" style="display: none;">
                             <h3>Methodology</h3>
-                            <p>Data was sourced from Gapminder, covering 193 countries for the year 2020. Key variables included GDP per capita (adjusted for purchasing power parity) and life expectancy at birth. The analysis involved:</p>
+                            <p>Data was sourced from Gapminder's open data repository, which provides country-level statistics on GDP per capita and life expectancy. The year 2020 was selected to reflect the most recent available global data. The analysis involved:</p>
                             <ul>
-                              <li>Data cleaning and merging of datasets.</li>
-                              <li>Logarithmic transformation of the GDP per capita variable to normalize the distribution and better visualize the relationship.</li>
-                              <li>Creation of an interactive scatter plot using Plotly to visualize the relationship between log(GDP per capita) and life expectancy.</li>
-                              <li>Correlation analysis to quantify the strength of the association.</li>
+                              <li>Data retrieval and preparation: GDP per capita (in USD) and life expectancy data for 2020 were extracted</li>
+                              <li>Exploratory data analysis: A scatter plot was created to visualize the relationship between GDP per capita and life expectancy, using a logarithmic scale for GDP to better capture variation at lower income levels</li>
+                              <li>Visualization of spatial distribution: A world map was produced to illustrate life expectancy and GDP per capita across countries</li>
+                              <li>Statistical assistance: The AI platform Julius AI was used to support data analysis and visualization, including generation of scatter plots and model fitting</li>
                             </ul>
                           </div>
                           <div id="gdp-findings" class="report-text" style="display: none;">
                             <h3>Detailed Findings</h3>
-                            <p>The scatter plot shows a clear upward trend: as log(GDP per capita) increases, life expectancy tends to increase as well. The relationship is non-linear in its original scale, with the steepest gains in life expectancy occurring at lower levels of GDP. For instance, moving from $1,000 to $5,000 per capita is associated with a much larger increase in life expectancy than moving from $30,000 to $35,000.</p>
-                            <p>Outliers exist, such as countries with high GDP but relatively lower life expectancy, or vice versa, suggesting that factors beyond national income—such as healthcare system quality, social equity, and public health policies—play a crucial role.</p>
+                            <p>The scatterplot reveals a strong positive relationship between GDP per capita and life expectancy in 2020. Key observations:</p>
+                            <ul>
+                              <li>Logarithmic relationship: The relationship is strongest at lower GDP levels, where small increases in GDP per capita are associated with substantial gains in life expectancy</li>
+                              <li>Diminishing returns: At higher GDP levels (above ~$20,000), additional wealth produces smaller improvements in life expectancy, suggesting a plateau effect</li>
+                              <li>Strong correlation: Countries with higher economic output consistently show higher life expectancy, indicating that economic development is closely tied to health outcomes</li>
+                              <li>Range: Life expectancy ranges from approximately 55 to 85 years, while GDP per capita spans from under $1,000 to over $100,000</li>
+                            </ul>
+                            <p>This pattern suggests that economic resources enable better healthcare, nutrition, sanitation, and living conditions that directly impact longevity, though the benefits level off once basic needs are met.</p>
                           </div>
                           <div id="gdp-reflection" class="report-text" style="display: none;">
                             <h3>Personal Reflection</h3>
-                            <p>This project was an excellent exercise in using AI tools for rapid data analysis and visualization. The AI assistant was instrumental in generating the Python code for data cleaning and Plotly visualization, turning a complex task into a manageable one. It highlighted the power of AI in not just writing code, but also in interpreting the data and suggesting analytical approaches (like the log transformation).</p>
-                            <p>As an M&E professional, this capability is transformative. It allows for faster iteration on data models and more time spent on interpreting the 'why' behind the data, rather than just the 'how' of processing it. This directly applies to my work in public health, where quickly visualizing the relationship between resource allocation (inputs) and health outcomes (impact) is critical for policy decisions.</p>
+                            <p>As a statistician and Public Health specialist with extensive experience of M&E, such use of Generative with no code data analysis has huge implications in maximizing the utilization of data in short time to facilitate the timely decision making in the Health sector. In our context, there are huge data set from multiple data sources that such platforms motivate me to apply it in my current role at Ministry of Health. Very helpful and feel encouraged.! I will also go further exercise to deepen my knowledge.</p>
                           </div>
                         </div>
                       </div>
@@ -1047,8 +1052,7 @@
                   </div>
                   
                   <div class="project-cta">
-                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="pdf-button pdf-button-primary" download="Ftalew_Dagnaw_GDP_Analysis.pdf">Download Report (PDF)</a>
-                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="pdf-button pdf-button-secondary" download="Ftalew_Dagnaw_GDP_Analysis.pptx">Download Slides (PPTX)</a>
+                    <a href="relationship between GDP per capita and life expectancy_by_Ftalew_Dagnaw.pdf" class="pdf-button pdf-button-primary" download="Ftalew_Dagnaw_GDP_Analysis.pdf">Download Report (PDF)</a>
                   </div>
                 </div>
               </label>
@@ -1084,7 +1088,7 @@
                     <span>Date: Oct 30, 2025</span>
                   </div>
                   <div class="project-cta" style="margin-top: 1rem; gap: 0.95rem;">
-                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="pdf-button pdf-button-primary" download>
+                    <a href="Job market analysis report.pdf" class="pdf-button pdf-button-primary" download="Ftalew_Dagnaw_Job_Market_Analysis.pdf">
                       <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                       </svg>
@@ -1154,7 +1158,7 @@
         <ul class="contact-list">
           <li>
             <span>Email:</span>
-            <a href="mailto:ftalew.dagnaw@example.com">f.dagnaw.gebreyesus@gmail.com</a>
+            <a href="mailto:f.dagnaw.gebreyesus@gmail.com">f.dagnaw.gebreyesus@gmail.com</a>
           </li>
           <li>
             <span>LinkedIn:</span>
