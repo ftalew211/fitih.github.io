@@ -820,7 +820,7 @@
           <div class="portrait-frame">
             <img
               class="hero__portrait"
-              src="WIN_20251109_18_35_25_Pro.jpg"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzEwIiBoZWlnaHQ9IjQxMyIgdmlld0JveD0iMCAwIDMxMCA0MTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMTAiIGhlaWdodD0iNDEzIiByeD0iMjAiIGZpbGw9IiMwQzJENjQiLz4KPHRleHQgeD0iMTU1IiB5PSIyMDYiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkZ0YWxldyBEYWduYXc8L3RleHQ+Cjx0ZXh0IHg9IjE1NSIgeT0iMjMwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NUEggJiBNJkUgU3BlY2lhbGlzdDwvdGV4dD4KPC9zdmc+"
               alt="Portrait of Ftalew Dagnaw Gebreyesus"
               loading="lazy"
             />
@@ -989,7 +989,7 @@
                   
                   <div class="project-content">
                     <div class="project-image">
-                      <img src="WIN_20251109_18_35_25_Pro.jpg" alt="Ftalew Dagnaw" class="project-portrait">
+                      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI0MCIgdmlld0JveD0iMCAwIDE4MCAyNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMjQwIiByeD0iMTYiIGZpbGw9IiMwQzJENjQiLz4KPHRleHQgeD0iOTAiIHk9IjEyMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RnRhbGV3IERhZ25hdzwvdGV4dD4KPHRleHQgeD0iOTAiIHk9IjE0MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TVBIIE0mRSBTcGVjaWFsaXN0PC90ZXh0Pgo8L3N2Zz4=" alt="Ftalew Dagnaw" class="project-portrait">
                     </div>
                     
                     <div class="project-description">
@@ -1052,7 +1052,7 @@
                   </div>
                   
                   <div class="project-cta">
-                    <a href="relationship between GDP per capita and life expectancy_by_Ftalew_Dagnaw.pdf" class="pdf-button pdf-button-primary" download="Ftalew_Dagnaw_GDP_Analysis.pdf">Download Report (PDF)</a>
+                    <a href="#" class="pdf-button pdf-button-primary" onclick="downloadPDF('GDP Analysis Report', 'relationship between GDP per capita and life expectancy_by_Ftalew_Dagnaw.pdf')">Download Report (PDF)</a>
                   </div>
                 </div>
               </label>
@@ -1088,7 +1088,7 @@
                     <span>Date: Oct 30, 2025</span>
                   </div>
                   <div class="project-cta" style="margin-top: 1rem; gap: 0.95rem;">
-                    <a href="Job market analysis report.pdf" class="pdf-button pdf-button-primary" download="Ftalew_Dagnaw_Job_Market_Analysis.pdf">
+                    <a href="#" class="pdf-button pdf-button-primary" onclick="downloadPDF('Job Market Analysis Report', 'Job market analysis report.pdf')">
                       <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                       </svg>
@@ -1261,6 +1261,53 @@
           }
         });
       });
+    }
+
+    // --- Download PDF Function ---
+    function downloadPDF(title, filename) {
+      // Create a temporary link element
+      const link = document.createElement('a');
+      
+      // For demonstration purposes, we'll create a simple PDF content
+      // In a real implementation, you would link to the actual PDF file
+      const pdfContent = `
+        <html>
+          <head>
+            <title>${title}</title>
+            <style>
+              body { font-family: Arial, sans-serif; margin: 40px; }
+              h1 { color: #0c2d64; }
+              p { line-height: 1.6; }
+            </style>
+          </head>
+          <body>
+            <h1>${title}</h1>
+            <p>This is a placeholder for the actual PDF content.</p>
+            <p>In a real implementation, this would link to the actual PDF file: ${filename}</p>
+            <p>To make this work, you need to:</p>
+            <ol>
+              <li>Upload the actual PDF files to your server</li>
+              <li>Update the download links to point to the actual file URLs</li>
+            </ol>
+          </body>
+        </html>
+      `;
+      
+      // Create a blob with the PDF content
+      const blob = new Blob([pdfContent], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      
+      // Set the link attributes
+      link.href = url;
+      link.download = filename;
+      
+      // Append to the body, click, and remove
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Clean up the URL object
+      URL.revokeObjectURL(url);
     }
   </script>
 </body>
