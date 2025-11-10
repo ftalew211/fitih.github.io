@@ -818,9 +818,10 @@
 
         <div class="hero__image">
           <div class="portrait-frame">
+            <!-- Using a placeholder image instead of broken SVG data URL -->
             <img
               class="hero__portrait"
-              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzEwIiBoZWlnaHQ9IjQxMyIgdmlld0JveD0iMCAwIDMxMCA0MTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMTAiIGhlaWdodD0iNDEzIiByeD0iMjAiIGZpbGw9IiMwQzJENjQiLz4KPHRleHQgeD0iMTU1IiB5PSIyMDYiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkZ0YWxldyBEYWduYXc8L3RleHQ+Cjx0ZXh0IHg9IjE1NSIgeT0iMjMwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NUEggJiBNJkUgU3BlY2lhbGlzdDwvdGV4dD4KPC9zdmc+"
+              src="https://via.placeholder.com/310x413/0c2d64/ffffff?text=Ftalew+Dagnaw"
               alt="Portrait of Ftalew Dagnaw Gebreyesus"
               loading="lazy"
             />
@@ -989,7 +990,8 @@
                   
                   <div class="project-content">
                     <div class="project-image">
-                      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI0MCIgdmlld0JveD0iMCAwIDE4MCAyNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMjQwIiByeD0iMTYiIGZpbGw9IiMwQzJENjQiLz4KPHRleHQgeD0iOTAiIHk9IjEyMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RnRhbGV3IERhZ25hdzwvdGV4dD4KPHRleHQgeD0iOTAiIHk9IjE0MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TVBIIE0mRSBTcGVjaWFsaXN0PC90ZXh0Pgo8L3N2Zz4=" alt="Ftalew Dagnaw" class="project-portrait">
+                      <!-- Fixed project image -->
+                      <img src="https://via.placeholder.com/180x240/0c2d64/ffffff?text=Ftalew+Dagnaw" alt="Ftalew Dagnaw" class="project-portrait">
                     </div>
                     
                     <div class="project-description">
@@ -1264,13 +1266,72 @@
 
     // --- Download PDF Function ---
     function downloadPDF(title, filename) {
-      // In a real implementation, this would link to actual PDF files
-      // For demonstration, we'll create a simple alert
-      alert(`In a real implementation, this would download: ${filename}\n\nFor now, this is a placeholder function.`);
+      // Create a simple PDF content
+      const pdfContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>${title}</title>
+          <style>
+            body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+            h1 { color: #0c2d64; border-bottom: 2px solid #6bdcff; padding-bottom: 10px; }
+            h2 { color: #1e4fb8; margin-top: 30px; }
+            .header { background: #f0f8ff; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+            .info { display: flex; justify-content: space-between; margin-bottom: 20px; }
+            .section { margin-bottom: 30px; }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <h1>${title}</h1>
+            <div class="info">
+              <div>
+                <strong>Author:</strong> Ftalew Dagnaw Gebreyesus<br>
+                <strong>Date:</strong> ${new Date().toLocaleDateString()}
+              </div>
+              <div>
+                <strong>MPH & M&E Specialist</strong><br>
+                Ministry of Health, Ethiopia
+              </div>
+            </div>
+          </div>
+          
+          <div class="section">
+            <h2>Executive Summary</h2>
+            <p>This is a placeholder PDF document for demonstration purposes. In a real implementation, this would contain the actual report content for "${title}".</p>
+            <p>The download functionality is working correctly. To implement actual PDF generation, you would need to:</p>
+            <ol>
+              <li>Create the actual PDF files using tools like Microsoft Word, Google Docs, or specialized PDF libraries</li>
+              <li>Host the PDF files on your server or cloud storage</li>
+              <li>Update the download links to point to the actual file URLs</li>
+            </ol>
+          </div>
+          
+          <div class="section">
+            <h2>Contact Information</h2>
+            <p><strong>Email:</strong> f.dagnaw.gebreyesus@gmail.com</p>
+            <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/ftalew-dagnaw-gebreyesus-mph-b95b8535/</p>
+          </div>
+        </body>
+        </html>
+      `;
       
-      // To implement actual download, you would need:
-      // 1. Actual PDF files hosted on your server
-      // 2. Replace this function with: window.location.href = '/path/to/' + filename;
+      // Create a blob with the HTML content
+      const blob = new Blob([pdfContent], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      
+      // Create a temporary link element
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      
+      // Append to the body, click, and remove
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Clean up the URL object
+      URL.revokeObjectURL(url);
     }
 
     // --- Initialize progress on load ---
