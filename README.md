@@ -824,7 +824,7 @@
           <div class="portrait-frame">
             <img
               class="hero__portrait"
-              src="./ftalew-dagnaw-profile.jpg"
+              src="./Ftalew Picture.jpg"
               alt="Portrait of Ftalew Dagnaw Gebreyesus"
               loading="lazy"
             />
@@ -993,7 +993,7 @@
                   
                   <div class="project-content">
                     <div class="project-image">
-                      <img src="./ftalew-dagnaw-profile.jpg" alt="Ftalew Dagnaw" class="project-portrait">
+                      <img src="./Ftalew Picture.jpg" alt="Ftalew Dagnaw" class="project-portrait">
                     </div>
                     
                     <div class="project-description">
@@ -1051,17 +1051,17 @@
                       <div class="project-cta">
                         <a 
                           class="pdf-button pdf-button-primary" 
-                          href="./reports/GDP-Life-Expectancy-Report.pdf" 
-                          download="Ftalew-Dagnaw-GDP-Analysis.pdf"
+                          href="./relationship between GDP per capita and life expectancy_by_Ftalew_Dagnaw.pdf" 
+                          download="relationship between GDP per capita and life expectancy_by_Ftalew_Dagnaw.pdf"
                         >
-                          Download Full Report (PDF)
+                          Download GDP Report (PDF)
                         </a>
                         <a 
                           class="pdf-button pdf-button-secondary" 
-                          href="./data/Gapminder-Data-2020.xlsx" 
-                          download="Gapminder-Data-2020.xlsx"
+                          href="./Job market analysis report.pdf" 
+                          download="Job market analysis report.pdf"
                         >
-                          Download Dataset (.xlsx)
+                          Download Job Market Report (PDF)
                         </a>
                       </div>
                     </div>
