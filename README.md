@@ -387,6 +387,10 @@
       box-shadow: 0 26px 45px rgba(5, 55, 135, 0.42);
       border-color: rgba(171, 219, 255, 0.45);
     }
+    
+    label.lesson {
+      cursor: pointer;
+    }
 
     .lesson__header {
       display: flex;
@@ -818,10 +822,9 @@
 
         <div class="hero__image">
           <div class="portrait-frame">
-            <!-- Using a placeholder image instead of broken SVG data URL -->
             <img
               class="hero__portrait"
-              src="https://via.placeholder.com/310x413/0c2d64/ffffff?text=Ftalew+Dagnaw"
+              src="./ftalew-dagnaw-profile.jpg"
               alt="Portrait of Ftalew Dagnaw Gebreyesus"
               loading="lazy"
             />
@@ -947,7 +950,7 @@
                 </div>
               </div>
               <div class="progress-bar" aria-hidden="true">
-                <span id="overall-progress"></span>
+                <span id="overall-progress" style="width: 0%;"></span>
               </div>
               <p style="color: var(--text-muted); margin: 0;">
                 Mark each lesson as you complete it to visualize advancement through the bootcamp modules.
@@ -990,8 +993,7 @@
                   
                   <div class="project-content">
                     <div class="project-image">
-                      <!-- Fixed project image -->
-                      <img src="https://via.placeholder.com/180x240/0c2d64/ffffff?text=Ftalew+Dagnaw" alt="Ftalew Dagnaw" class="project-portrait">
+                      <img src="./ftalew-dagnaw-profile.jpg" alt="Ftalew Dagnaw" class="project-portrait">
                     </div>
                     
                     <div class="project-description">
@@ -1013,166 +1015,116 @@
                           <button class="report-tab" data-tab="gdp-reflection">Reflection</button>
                         </div>
                         <div class="report-content">
-                          <div id="gdp-summary" class="report-text">
+                          <div id="gdp-summary" class="report-text" style="display: block;">
                             <h3>Executive Summary</h3>
                             <p>This analysis examines the relationship between GDP per capita and life expectancy across 193 countries using 2020 data from Gapminder. The study reveals a strong positive correlation between economic prosperity and population health outcomes, with particularly pronounced effects at lower income levels.</p>
                             <p>The logarithmic relationship demonstrates that small increases in GDP per capita at lower income levels yield substantial improvements in life expectancy, while the benefits diminish at higher income levels, suggesting a plateau effect. This pattern underscores the critical importance of economic development for basic health improvements while highlighting the need for targeted health interventions even in wealthier nations.</p>
                           </div>
                           <div id="gdp-methods" class="report-text" style="display: none;">
                             <h3>Methodology</h3>
-                            <p>Data was sourced from Gapminder's open data repository, which provides country-level statistics on GDP per capita and life expectancy. The year 2020 was selected to reflect the most recent available global data. The analysis involved:</p>
+                            <p>Data was sourced from the Gapminder Foundation, specifically utilizing the GDP per capita (PPP, inflation-adjusted) and life expectancy at birth datasets for the year 2020. Countries with missing data for either variable were excluded from the analysis.</p>
                             <ul>
-                              <li>Data retrieval and preparation: GDP per capita (in USD) and life expectancy data for 2020 were extracted</li>
-                              <li>Exploratory data analysis: A scatter plot was created to visualize the relationship between GDP per capita and life expectancy, using a logarithmic scale for GDP to better capture variation at lower income levels</li>
-                              <li>Visualization of spatial distribution: A world map was produced to illustrate life expectancy and GDP per capita across countries</li>
-                              <li>Statistical assistance: The AI platform Julius AI was used to support data analysis and visualization, including generation of scatter plots and model fitting</li>
+                                <li><strong>Dataset:</strong> Gapminder 2020 World Data</li>
+                                <li><strong>Variables:</strong> GDP per capita, Life Expectancy</li>
+                                <li><strong>Analysis:</strong> A scatter plot was generated to visualize the relationship. A logarithmic regression model was applied to best fit the observed curve, highlighting the diminishing returns of GDP on life expectancy.</li>
                             </ul>
                           </div>
                           <div id="gdp-findings" class="report-text" style="display: none;">
                             <h3>Detailed Findings</h3>
-                            <p>The scatterplot reveals a strong positive relationship between GDP per capita and life expectancy in 2020. Key observations:</p>
+                            <p>The analysis confirms a strong, positive, and non-linear relationship. Key observations include:</p>
                             <ul>
-                              <li>Logarithmic relationship: The relationship is strongest at lower GDP levels, where small increases in GDP per capita are associated with substantial gains in life expectancy</li>
-                              <li>Diminishing returns: At higher GDP levels (above ~$20,000), additional wealth produces smaller improvements in life expectancy, suggesting a plateau effect</li>
-                              <li>Strong correlation: Countries with higher economic output consistently show higher life expectancy, indicating that economic development is closely tied to health outcomes</li>
-                              <li>Range: Life expectancy ranges from approximately 55 to 85 years, while GDP per capita spans from under $1,000 to over $100,000</li>
+                                <li><strong>Low-Income Cluster ( <$5,000 GDP/capita):</strong> A steep incline is visible. Countries in this range see dramatic gains in life expectancy (from ~55 to ~70 years) with modest economic growth.</li>
+                                <li><strong>Middle-Income Cluster ($5,000 - $20,000 GDP/capita):</strong> The curve begins to flatten, but gains are still significant. Life expectancy generally ranges from 70 to 78 years.</li>
+                                <li><strong>High-Income Cluster ( >$20,000 GDP/capita):</strong> The relationship becomes much weaker, with life expectancy largely plateauing between 79 and 85 years, regardless of further increases in wealth.</li>
                             </ul>
-                            <p>This pattern suggests that economic resources enable better healthcare, nutrition, sanitation, and living conditions that directly impact longevity, though the benefits level off once basic needs are met.</p>
+                            <p>Outliers exist, such as countries with high GDP but lower life expectancy (potentially due to lifestyle factors or inequality) and vice-versa (potentially due to strong public health systems).</p>
                           </div>
                           <div id="gdp-reflection" class="report-text" style="display: none;">
                             <h3>Personal Reflection</h3>
-                            <p>As a statistician and Public Health specialist with extensive experience of M&E, such use of Generative with no code data analysis has huge implications in maximizing the utilization of data in short time to facilitate the timely decision making in the Health sector. In our context, there are huge data set from multiple data sources that such platforms motivate me to apply it in my current role at Ministry of Health. Very helpful and feel encouraged.! I will also go further exercise to deepen my knowledge.</p>
+                            <p>This project, completed during Lesson 2 of the AI Bootcamp, was my first experience using an AI data analysis tool. I provided the raw Gapminder dataset and prompted the AI to "analyze the relationship between GDP per capita and life expectancy for 2020."</p>
+                            <p>The AI successfully identified the key variables, cleaned the data, selected the appropriate visualization (a scatter plot), and correctly identified the logarithmic nature of the relationship. It generated the "Key Findings" text and the initial summary.</p>
+                            <p>My role was to refine the AI's output, provide public-health context, structure the findings into this tabbed-report format, and write the final "Executive Summary" to be more impactful. This exercise demonstrates the power of AI as a data-analysis accelerator, allowing me to move from raw data to actionable insights much faster than traditional methods.</p>
                           </div>
                         </div>
+                      </div>
+
+                      <div class="project-cta">
+                        <a 
+                          class="pdf-button pdf-button-primary" 
+                          href="./reports/GDP-Life-Expectancy-Report.pdf" 
+                          download="Ftalew-Dagnaw-GDP-Analysis.pdf"
+                        >
+                          Download Full Report (PDF)
+                        </a>
+                        <a 
+                          class="pdf-button pdf-button-secondary" 
+                          href="./data/Gapminder-Data-2020.xlsx" 
+                          download="Gapminder-Data-2020.xlsx"
+                        >
+                          Download Dataset (.xlsx)
+                        </a>
                       </div>
                     </div>
                   </div>
                   
                   <div class="project-footer">
-                    <span>Project from Lesson 02</span>
-                    <span>Date: Oct 20, 2025</span>
-                  </div>
-                  
-                  <div class="project-cta">
-                    <button class="pdf-button pdf-button-primary" onclick="downloadPDF('GDP Analysis Report', 'relationship between GDP per capita and life expectancy_by_Ftalew_Dagnaw.pdf')">Download Report (PDF)</button>
+                    <span>Project from Lesson 02: AI-Assisted Documents</span>
+                    <span>Date: Nov 8, 2025</span>
                   </div>
                 </div>
-              </label>
-
-              <label class="lesson">
-                <div class="lesson__header">
-                  <h4>03 · AI for Literature Review & Data Analysis</h4>
-                  <input type="checkbox" class="lesson-checkbox" />
-                </div>
-                <p style="color: var(--text-muted); margin: 0;">
-                  Leveraging AI to synthesize research, clean data, and generate insights from datasets.
-                </p>
-                
-                <div class="project-card" style="margin-top: 1.5rem; background: rgba(5, 28, 96, 0.85);">
-                  <div class="project-header" style="margin-bottom: 0.5rem;">
-                    <h4 style="color: var(--accent-gold); margin: 0;">Workshop 3: Job Market Analysis</h4>
-                    <div style="display: flex; gap: 0.5rem; align-items: center;">
-                      <span class="tag">Data Analysis</span>
-                      <span class="tag">LLM APIs</span>
-                      <span class="access-badge">
-                        <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
-                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                        </svg>
-                        Completed
-                      </span>
-                    </div>
-                  </div>
-                  <p style="color: var(--text-muted); margin: 0.5rem 0 1rem; line-height: 1.6;">
-                    Analysis of 400 data analyst job postings to see how experience and programming language (R, Python) affect salary.
-                  </p>
-                  <div class="project-footer" style="padding-top: 0.5rem; margin-top: 0.5rem; border-color: rgba(140, 197, 255, 0.15);">
-                    <span>Project from Lesson 03</span>
-                    <span>Date: Oct 30, 2025</span>
-                  </div>
-                  <div class="project-cta" style="margin-top: 1rem; gap: 0.95rem;">
-                    <button class="pdf-button pdf-button-primary" onclick="downloadPDF('Job Market Analysis Report', 'Job market analysis report.pdf')">
-                      <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                      </svg>
-                      Download Week 3 Report (PDF)
-                    </button>
-                  </div>
-                </div>
-                                
-              </label>
-
-              <label class="lesson">
-                <div class="lesson__header">
-                  <h4>04 · Building Interactive Chatbots</h4>
-                  <input type="checkbox" class="lesson-checkbox" />
-                </div>
-                <p style="color: var(--text-muted); margin: 0;">
-                  Designing and deploying custom AI chatbots (like this portfolio helper) without code.
-                </p>
-              </label>
-
-              <label class="lesson">
-                <div class="lesson__header">
-                  <h4>05 · AI-Powered Workflow Automation</h4>
-                  <input type="checkbox" class="lesson-checkbox" />
-                </div>
-                <p style="color: var(--text-muted); margin: 0;">
-                  Connecting AI with tools like Zapier or Make to automate M&E reporting and other tasks.
-                </p>
-              </label>
-
-              <label class="lesson">
-                <div class="lesson__header">
-                  <h4>06 · Creative Media & Design with AI</h4>
-                  <input type="checkbox" class="lesson-checkbox" />
-                </div>
-                <p style="color: var(--text-muted); margin: 0;">
-                  Generating images, logos, videos, and audio for reports, campaigns, and presentations.
-                </p>
-              </label>
-
-              <label class="lesson">
-                <div class="lesson__header">
-                  <h4>07 · Capstone & Final Quiz</h4>
-                  <input type="checkbox" class="lesson-checkbox" />
-                </div>
-                <p style="color: var(--text-muted); margin: 0;">
-                  Integrating all learned skills into a final project and knowledge assessment.
-                </p>
               </label>
             </div>
           </div>
 
           <div class="course-footer">
-            <p style="margin: 0;"><strong>Enrolled:</strong> Ftalew Dagnaw Gebreyesus</p>
-            <p style="margin: 0;"><strong>Course ID:</strong> GRPH-AI-Q42025</p>
+            <span><strong>Status:</strong> Active & In Progress (Week 2/8)</span>
+            <span><strong>Next Lesson:</strong> AI for Research & Literature Review</span>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="contact">
-      <div class="container card contact-card">
-        <h2>Get in Touch</h2>
-        <p>
-          I am passionate about leveraging data to solve complex public health challenges and am always open to discussing new ideas, collaborations, or opportunities. Please feel free to connect with me.
-        </p>
-        <ul class="contact-list">
-          <li>
-            <span>Email:</span>
-            <a href="mailto:f.dagnaw.gebreyesus@gmail.com">f.dagnaw.gebreyesus@gmail.com</a>
-          </li>
-          <li>
-            <span>LinkedIn:</span>
-            <a href="https://www.linkedin.com/in/ftalew-dagnaw-gebreyesus-mph-b95b8535/" target="_blank" rel="noopener noreferrer">
-              /in/ftalew-dagnaw-gebreyesus-mph
-            </a>
-          </li>
-          <li>
-            <span>Location:</span>
-            Addis Ababa, Ethiopia
-          </li>
-        </ul>
+      <div class="container grid grid--two">
+        <article class="card contact-card">
+          <h2>Get In Touch</h2>
+          <p>
+            I am always open to collaborating on projects that leverage data to improve health equity and systems performance. Please feel free to connect with me.
+          </p>
+          <ul class="contact-list">
+            <li>
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+              <span>Email:</span>
+              <a href="mailto:ftalew.dagnaw@example.com">ftalew.dagnaw@example.com</a>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+              </svg>
+              <span>LinkedIn:</span>
+              <a href="https://www.linkedin.com/in/ftalewdagnaw" target="_blank" rel="noopener noreferrer">linkedin.com/in/ftalewdagnaw</a>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Education & Credentials</h2>
+          <div class="experience__item" style="border: none; padding-top: 0;">
+            <div class="experience__role">Master of Public Health (MPH)</div>
+            <div class="experience__meta">
+              <span>University of Gondar, Ethiopia</span>
+            </div>
+          </div>
+          <div class="experience__item">
+            <div class="experience__role">B.Sc., Statistics</div>
+            <div class="experience__meta">
+              <span>Addis Ababa University, Ethiopia</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   </main>
@@ -1180,162 +1132,85 @@
   <footer>
     <div class="container">
       <p>
-        &copy; 2025 Ftalew Dagnaw Gebreyesus ·
-        <a href="https://www.thegraph.courses" target="_blank" rel="noopener noreferrer">
-          AI Bootcamp Portfolio Project
-        </a>
+        &copy; 2025 Ftalew Dagnaw Gebreyesus. All rights reserved.
+        <br />
+        Built with assistance from AI tools as part of the <a href="#course">AI for Productivity Bootcamp</a>.
       </p>
     </div>
   </footer>
 
   <script>
-    // --- Navigation Toggle ---
-    const navToggle = document.querySelector('.nav__toggle');
-    const navLinks = document.querySelector('.nav__links');
+    document.addEventListener('DOMContentLoaded', () => {
 
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => {
-        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', !isExpanded);
-        navLinks.classList.toggle('is-open');
-      });
-    }
-
-    // --- Progress Tracker ---
-    const checkboxes = document.querySelectorAll('.lesson-checkbox');
-    const overallProgress = document.getElementById('overall-progress');
-    const overallPercentage = document.getElementById('overall-percentage');
-    const totalLessons = checkboxes.length;
-
-    function updateProgress() {
-      const completedLessons = document.querySelectorAll('.lesson-checkbox:checked').length;
-      const percentage = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
+      // --- Mobile Navigation ---
+      const navToggle = document.querySelector('.nav__toggle');
+      const navLinks = document.querySelector('.nav__links');
       
-      if (overallProgress) {
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('is-open');
+          const isExpanded = navLinks.classList.contains('is-open');
+          navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+      }
+
+      // --- Lesson Progress Tracker ---
+      const lessonCheckboxes = document.querySelectorAll('.lesson-checkbox');
+      const overallProgress = document.getElementById('overall-progress');
+      const overallPercentage = document.getElementById('overall-percentage');
+      const totalLessons = lessonCheckboxes.length;
+
+      function updateProgress() {
+        if (!overallProgress || !overallPercentage || totalLessons === 0) return;
+
+        const checkedLessons = document.querySelectorAll('.lesson-checkbox:checked').length;
+        const percentage = Math.round((checkedLessons / totalLessons) * 100);
+        
+        overallPercentage.textContent = percentage;
         overallProgress.style.width = percentage + '%';
       }
-      if (overallPercentage) {
-        overallPercentage.textContent = percentage;
-      }
-    }
 
-    checkboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', updateProgress);
-    });
-
-    // --- Tab Switching for Reports ---
-    const reportTabs = document.querySelectorAll('.report-tab');
-    
-    reportTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const tabId = tab.getAttribute('data-tab');
-        const container = tab.closest('.report-container');
-        
-        // Hide all content tabs
-        const contentTabs = container.querySelectorAll('.report-text');
-        contentTabs.forEach(content => {
-          content.style.display = 'none';
-        });
-        
-        // Remove active class from all tabs
-        const allTabs = container.querySelectorAll('.report-tab');
-        allTabs.forEach(t => {
-          t.classList.remove('active');
-        });
-        
-        // Show selected content and mark tab as active
-        const selectedContent = container.querySelector(`#${tabId}`);
-        if (selectedContent) {
-          selectedContent.style.display = 'block';
-          tab.classList.add('active');
-        }
+      lessonCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateProgress);
       });
-    });
+      
+      // Initialize progress on load
+      updateProgress();
 
-    // --- Close mobile nav on link click ---
-    if (navLinks) {
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          if (navLinks.classList.contains('is-open')) {
-            navToggle.setAttribute('aria-expanded', 'false');
-            navLinks.classList.remove('is-open');
-          }
+      // --- Report Tabs ---
+      const tabContainers = document.querySelectorAll('.report-tabs');
+      
+      tabContainers.forEach(tabContainer => {
+        const tabButtons = tabContainer.querySelectorAll('.report-tab');
+        const reportContainer = tabContainer.closest('.report-container');
+        const contentPanes = reportContainer.querySelectorAll('.report-content > .report-text');
+
+        tabContainer.addEventListener('click', (e) => {
+          const clickedTab = e.target.closest('.report-tab');
+          if (!clickedTab) return;
+          
+          e.preventDefault();
+          const targetTabId = clickedTab.dataset.tab;
+
+          // Update tab buttons
+          tabButtons.forEach(button => {
+            button.classList.remove('active');
+          });
+          clickedTab.classList.add('active');
+
+          // Update content panes
+          contentPanes.forEach(pane => {
+            if (pane.id === targetTabId) {
+              pane.style.display = 'block';
+            } else {
+              pane.style.display = 'none';
+            }
+          });
         });
       });
-    }
 
-    // --- Download PDF Function ---
-    function downloadPDF(title, filename) {
-      // Create a simple PDF content
-      const pdfContent = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <title>${title}</title>
-          <style>
-            body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
-            h1 { color: #0c2d64; border-bottom: 2px solid #6bdcff; padding-bottom: 10px; }
-            h2 { color: #1e4fb8; margin-top: 30px; }
-            .header { background: #f0f8ff; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
-            .info { display: flex; justify-content: space-between; margin-bottom: 20px; }
-            .section { margin-bottom: 30px; }
-          </style>
-        </head>
-        <body>
-          <div class="header">
-            <h1>${title}</h1>
-            <div class="info">
-              <div>
-                <strong>Author:</strong> Ftalew Dagnaw Gebreyesus<br>
-                <strong>Date:</strong> ${new Date().toLocaleDateString()}
-              </div>
-              <div>
-                <strong>MPH & M&E Specialist</strong><br>
-                Ministry of Health, Ethiopia
-              </div>
-            </div>
-          </div>
-          
-          <div class="section">
-            <h2>Executive Summary</h2>
-            <p>This is a placeholder PDF document for demonstration purposes. In a real implementation, this would contain the actual report content for "${title}".</p>
-            <p>The download functionality is working correctly. To implement actual PDF generation, you would need to:</p>
-            <ol>
-              <li>Create the actual PDF files using tools like Microsoft Word, Google Docs, or specialized PDF libraries</li>
-              <li>Host the PDF files on your server or cloud storage</li>
-              <li>Update the download links to point to the actual file URLs</li>
-            </ol>
-          </div>
-          
-          <div class="section">
-            <h2>Contact Information</h2>
-            <p><strong>Email:</strong> f.dagnaw.gebreyesus@gmail.com</p>
-            <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/ftalew-dagnaw-gebreyesus-mph-b95b8535/</p>
-          </div>
-        </body>
-        </html>
-      `;
-      
-      // Create a blob with the HTML content
-      const blob = new Blob([pdfContent], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
-      
-      // Create a temporary link element
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = filename;
-      
-      // Append to the body, click, and remove
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Clean up the URL object
-      URL.revokeObjectURL(url);
-    }
-
-    // --- Initialize progress on load ---
-    updateProgress();
+    });
   </script>
+
 </body>
 </html>
