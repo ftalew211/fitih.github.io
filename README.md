@@ -1005,10 +1005,10 @@
                       
                       <div class="report-container">
                         <div class="report-tabs">
-                          <button class="report-tab active" onclick="switchTab('gdp', 'summary')">Executive Summary</button>
-                          <button class="report-tab" onclick="switchTab('gdp', 'methods')">Methods</button>
-                          <button class="report-tab" onclick="switchTab('gdp', 'findings')">Key Findings</button>
-                          <button class="report-tab" onclick="switchTab('gdp', 'reflection')">Reflection</button>
+                          <button class="report-tab active" data-tab="gdp-summary">Executive Summary</button>
+                          <button class="report-tab" data-tab="gdp-methods">Methods</button>
+                          <button class="report-tab" data-tab="gdp-findings">Key Findings</button>
+                          <button class="report-tab" data-tab="gdp-reflection">Reflection</button>
                         </div>
                         <div class="report-content">
                           <div id="gdp-summary" class="report-text">
@@ -1052,7 +1052,7 @@
                   </div>
                   
                   <div class="project-cta">
-                    <a href="#" class="pdf-button pdf-button-primary" onclick="downloadPDF('GDP Analysis Report', 'relationship between GDP per capita and life expectancy_by_Ftalew_Dagnaw.pdf')">Download Report (PDF)</a>
+                    <button class="pdf-button pdf-button-primary" onclick="downloadPDF('GDP Analysis Report', 'relationship between GDP per capita and life expectancy_by_Ftalew_Dagnaw.pdf')">Download Report (PDF)</button>
                   </div>
                 </div>
               </label>
@@ -1088,12 +1088,12 @@
                     <span>Date: Oct 30, 2025</span>
                   </div>
                   <div class="project-cta" style="margin-top: 1rem; gap: 0.95rem;">
-                    <a href="#" class="pdf-button pdf-button-primary" onclick="downloadPDF('Job Market Analysis Report', 'Job market analysis report.pdf')">
+                    <button class="pdf-button pdf-button-primary" onclick="downloadPDF('Job Market Analysis Report', 'Job market analysis report.pdf')">
                       <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                       </svg>
                       Download Week 3 Report (PDF)
-                    </a>
+                    </button>
                   </div>
                 </div>
                                 
@@ -1187,7 +1187,7 @@
   </footer>
 
   <script>
-    // --- Simple Navigation Toggle ---
+    // --- Navigation Toggle ---
     const navToggle = document.querySelector('.nav__toggle');
     const navLinks = document.querySelector('.nav__links');
 
@@ -1199,7 +1199,7 @@
       });
     }
 
-    // --- Simple Progress Tracker ---
+    // --- Progress Tracker ---
     const checkboxes = document.querySelectorAll('.lesson-checkbox');
     const overallProgress = document.getElementById('overall-progress');
     const overallPercentage = document.getElementById('overall-percentage');
@@ -1221,35 +1221,34 @@
       checkbox.addEventListener('change', updateProgress);
     });
 
-    // --- Initialize progress on load ---
-    updateProgress();
-
     // --- Tab Switching for Reports ---
-    function switchTab(reportId, tabName) {
-      // Get all content tabs for this report and hide them
-      const contentTabs = document.querySelectorAll(`.report-container [id^="${reportId}-"]`);
-      contentTabs.forEach(tab => {
-        tab.style.display = 'none';
+    const reportTabs = document.querySelectorAll('.report-tab');
+    
+    reportTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabId = tab.getAttribute('data-tab');
+        const container = tab.closest('.report-container');
+        
+        // Hide all content tabs
+        const contentTabs = container.querySelectorAll('.report-text');
+        contentTabs.forEach(content => {
+          content.style.display = 'none';
+        });
+        
+        // Remove active class from all tabs
+        const allTabs = container.querySelectorAll('.report-tab');
+        allTabs.forEach(t => {
+          t.classList.remove('active');
+        });
+        
+        // Show selected content and mark tab as active
+        const selectedContent = container.querySelector(`#${tabId}`);
+        if (selectedContent) {
+          selectedContent.style.display = 'block';
+          tab.classList.add('active');
+        }
       });
-
-      // Get all tab buttons for this report and deactivate them
-      const tabButtons = document.querySelectorAll(`.report-container [onclick*="'${reportId}'"]`);
-      tabButtons.forEach(button => {
-        button.classList.remove('active');
-      });
-
-      // Show the selected content tab
-      const selectedContent = document.getElementById(`${reportId}-${tabName}`);
-      if (selectedContent) {
-        selectedContent.style.display = 'block';
-      }
-
-      // Activate the selected tab button
-      const selectedButton = document.querySelector(`.report-container [onclick*="'${reportId}', '${tabName}'"]`);
-      if (selectedButton) {
-        selectedButton.classList.add('active');
-      }
-    }
+    });
 
     // --- Close mobile nav on link click ---
     if (navLinks) {
@@ -1265,50 +1264,17 @@
 
     // --- Download PDF Function ---
     function downloadPDF(title, filename) {
-      // Create a temporary link element
-      const link = document.createElement('a');
+      // In a real implementation, this would link to actual PDF files
+      // For demonstration, we'll create a simple alert
+      alert(`In a real implementation, this would download: ${filename}\n\nFor now, this is a placeholder function.`);
       
-      // For demonstration purposes, we'll create a simple PDF content
-      // In a real implementation, you would link to the actual PDF file
-      const pdfContent = `
-        <html>
-          <head>
-            <title>${title}</title>
-            <style>
-              body { font-family: Arial, sans-serif; margin: 40px; }
-              h1 { color: #0c2d64; }
-              p { line-height: 1.6; }
-            </style>
-          </head>
-          <body>
-            <h1>${title}</h1>
-            <p>This is a placeholder for the actual PDF content.</p>
-            <p>In a real implementation, this would link to the actual PDF file: ${filename}</p>
-            <p>To make this work, you need to:</p>
-            <ol>
-              <li>Upload the actual PDF files to your server</li>
-              <li>Update the download links to point to the actual file URLs</li>
-            </ol>
-          </body>
-        </html>
-      `;
-      
-      // Create a blob with the PDF content
-      const blob = new Blob([pdfContent], { type: 'application/pdf' });
-      const url = URL.createObjectURL(blob);
-      
-      // Set the link attributes
-      link.href = url;
-      link.download = filename;
-      
-      // Append to the body, click, and remove
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Clean up the URL object
-      URL.revokeObjectURL(url);
+      // To implement actual download, you would need:
+      // 1. Actual PDF files hosted on your server
+      // 2. Replace this function with: window.location.href = '/path/to/' + filename;
     }
+
+    // --- Initialize progress on load ---
+    updateProgress();
   </script>
 </body>
 </html>
