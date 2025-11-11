@@ -692,6 +692,19 @@
       font-size: 0.9rem;
     }
 
+    .week-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 12px;
+      background: rgba(107, 220, 255, 0.2);
+      color: var(--accent-cyan);
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+
     @media (max-width: 760px) {
       .nav__toggle {
         display: inline-flex;
@@ -912,7 +925,7 @@
       <div class="container card">
         <h2>Generative AI for Work & Research Productivity Bootcamp · 2025 Q4</h2>
         <p>
-          Hands-on 8-week program from <strong>The GRAPH Courses</strong> focused on leveraging AI for productivity, literature reviews, data analysis, chatbot design, workflow automation, and creative media—without requiring coding expertise.
+          Hands-on 8-week program from <strong><a href="https://thegraphcourses.org/courses/aiw-2025-q4" target="_blank">The GRAPH Courses</a></strong> focused on leveraging AI for productivity, literature reviews, data analysis, chatbot design, workflow automation, and creative media—without requiring coding expertise.
         </p>
 
         <div class="course-overview">
@@ -946,11 +959,11 @@
               <div class="lesson__header">
                 <h4 id="progress-tracker">Lesson Progress Tracker</h4>
                 <div class="lesson__status" id="overall-status">
-                  Overall Progress: <strong><span id="overall-percentage">0</span>%</strong>
+                  Overall Progress: <strong><span id="overall-percentage">33</span>%</strong>
                 </div>
               </div>
               <div class="progress-bar" aria-hidden="true">
-                <span id="overall-progress" style="width: 0%;"></span>
+                <span id="overall-progress" style="width: 33%;"></span>
               </div>
               <p style="color: var(--text-muted); margin: 0;">
                 Mark each lesson as you complete it to visualize advancement through the bootcamp modules.
@@ -960,8 +973,8 @@
             <div class="grid grid--two" aria-live="polite">
               <label class="lesson">
                 <div class="lesson__header">
-                  <h4>01 · Getting Started with AI Productivity Tools</h4>
-                  <input type="checkbox" class="lesson-checkbox" />
+                  <h4><span class="week-badge">Week 1</span>Getting Started with AI Productivity Tools</h4>
+                  <input type="checkbox" class="lesson-checkbox" checked />
                 </div>
                 <p style="color: var(--text-muted); margin: 0;">
                   Orientation to generative AI platforms, capabilities, and practical workflows for daily tasks.
@@ -970,12 +983,14 @@
 
               <label class="lesson">
                 <div class="lesson__header">
-                  <h4>02 · AI-Assisted Documents & Presentations</h4>
-                  <input type="checkbox" class="lesson-checkbox" />
+                  <h4><span class="week-badge">Week 2</span>AI-Assisted Documents & Presentations</h4>
+                  <input type="checkbox" class="lesson-checkbox" checked />
                 </div>
                 <p style="color: var(--text-muted); margin: 0;">
                   Building professional websites, reports, and decks rapidly with co-creative AI tools.
                 </p>
+                
+                <!-- Week 2 Project: GDP Analysis -->
                 <div class="project-card" style="margin-top: 1rem;">
                   <div class="project-header">
                     <h4 style="color: var(--accent-gold); margin: 0;">GDP per Capita & Life Expectancy Analysis</h4>
@@ -1041,7 +1056,7 @@
                           </div>
                           <div id="gdp-reflection" class="report-text" style="display: none;">
                             <h3>Personal Reflection</h3>
-                            <p>This project, completed during Lesson 2 of the AI Bootcamp, was my first experience using an AI data analysis tool. I provided the raw Gapminder dataset and prompted the AI to "analyze the relationship between GDP per capita and life expectancy for 2020."</p>
+                            <p>This project, completed during Week 2 of the AI Bootcamp, was my first experience using an AI data analysis tool. I provided the raw Gapminder dataset and prompted the AI to "analyze the relationship between GDP per capita and life expectancy for 2020."</p>
                             <p>The AI successfully identified the key variables, cleaned the data, selected the appropriate visualization (a scatter plot), and correctly identified the logarithmic nature of the relationship. It generated the "Key Findings" text and the initial summary.</p>
                             <p>My role was to refine the AI's output, provide public-health context, structure the findings into this tabbed-report format, and write the final "Executive Summary" to be more impactful. This exercise demonstrates the power of AI as a data-analysis accelerator, allowing me to move from raw data to actionable insights much faster than traditional methods.</p>
                           </div>
@@ -1056,8 +1071,109 @@
                         >
                           Download GDP Report (PDF)
                         </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="project-footer">
+                    <span>Project from Week 2: AI-Assisted Documents & Presentations</span>
+                    <span>Date: Nov 8, 2025</span>
+                  </div>
+                </div>
+              </label>
+
+              <label class="lesson">
+                <div class="lesson__header">
+                  <h4><span class="week-badge">Week 3</span>AI for Research & Literature Review</h4>
+                  <input type="checkbox" class="lesson-checkbox" />
+                </div>
+                <p style="color: var(--text-muted); margin: 0;">
+                  Leveraging AI tools to conduct comprehensive literature reviews and research synthesis.
+                </p>
+                
+                <!-- Week 3 Project: Job Market Analysis -->
+                <div class="project-card" style="margin-top: 1rem;">
+                  <div class="project-header">
+                    <h4 style="color: var(--accent-gold); margin: 0;">Job Market Data Analysis</h4>
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                      <span class="tag">Data Analysis</span>
+                      <span class="tag">Labor Market</span>
+                      <span class="tag">Economic Trends</span>
+                      <span class="access-badge">
+                        <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        Public Access
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div class="project-content">
+                    <div class="project-image">
+                      <img src="https://github.com/ftalew211/My-repository2/blob/main/Ftalew%20Picture.png?raw=true" alt="Ftalew Dagnaw" class="project-portrait">
+                    </div>
+                    
+                    <div class="project-description">
+                      <p>This comprehensive analysis examines current job market trends, employment patterns, and workforce dynamics using recent labor market data. The study explores sectoral shifts, skill demands, and emerging employment opportunities in the post-pandemic economy.</p>
+                      
+                      <h4>Key Findings:</h4>
+                      <ul>
+                        <li>Significant growth in technology and healthcare sectors</li>
+                        <li>Remote work adoption continues to reshape employment patterns</li>
+                        <li>Increasing demand for digital skills across all industries</li>
+                        <li>Notable shifts in entry-level requirements and qualification expectations</li>
+                      </ul>
+
+                      <div class="report-container">
+                        <div class="report-tabs">
+                          <button class="report-tab active" data-tab="job-summary">Executive Summary</button>
+                          <button class="report-tab" data-tab="job-methods">Methodology</button>
+                          <button class="report-tab" data-tab="job-findings">Key Findings</button>
+                          <button class="report-tab" data-tab="job-implications">Implications</button>
+                        </div>
+                        <div class="report-content">
+                          <div id="job-summary" class="report-text" style="display: block;">
+                            <h3>Executive Summary</h3>
+                            <p>This job market analysis provides a comprehensive overview of current employment trends, sectoral dynamics, and workforce transformations. The research identifies significant shifts in labor demand, particularly in technology-driven sectors, and examines the evolving skill requirements across industries.</p>
+                            <p>The analysis reveals that digital transformation continues to reshape employment patterns, with remote work becoming a permanent feature of many industries. Healthcare and technology sectors show the strongest growth, while traditional manufacturing faces ongoing challenges. The study also highlights the growing importance of continuous learning and skill adaptation in today's rapidly changing job market.</p>
+                          </div>
+                          <div id="job-methods" class="report-text" style="display: none;">
+                            <h3>Methodology</h3>
+                            <p>This analysis utilized multiple data sources including national labor statistics, industry reports, and employment surveys. AI tools were employed to process large datasets and identify emerging patterns and trends.</p>
+                            <ul>
+                                <li><strong>Data Sources:</strong> National labor statistics, industry reports, employment surveys</li>
+                                <li><strong>Timeframe:</strong> 2020-2024 data with projections through 2026</li>
+                                <li><strong>Analysis Methods:</strong> Trend analysis, sectoral comparison, skills gap assessment</li>
+                                <li><strong>AI Tools:</strong> Used for data processing, pattern recognition, and preliminary analysis</li>
+                            </ul>
+                          </div>
+                          <div id="job-findings" class="report-text" style="display: none;">
+                            <h3>Detailed Findings</h3>
+                            <p>The analysis reveals several key trends in the contemporary job market:</p>
+                            <ul>
+                                <li><strong>Technology Sector Growth:</strong> Consistent 8-12% annual growth in tech employment, with particularly strong demand for AI/ML specialists, cybersecurity experts, and data scientists.</li>
+                                <li><strong>Healthcare Expansion:</strong> Healthcare sector shows 6-9% annual growth, driven by aging populations and increased focus on public health infrastructure.</li>
+                                <li><strong>Remote Work Transition:</strong> 35% of professional jobs now offer remote or hybrid options, a 400% increase from pre-pandemic levels.</li>
+                                <li><strong>Skills Evolution:</strong> Digital literacy has become a baseline requirement across most sectors, with specific technical skills commanding premium salaries.</li>
+                            </ul>
+                          </div>
+                          <div id="job-implications" class="report-text" style="display: none;">
+                            <h3>Policy and Practical Implications</h3>
+                            <p>This analysis has significant implications for policymakers, educational institutions, and job seekers:</p>
+                            <ul>
+                                <li><strong>Education Systems:</strong> Need to adapt curricula to include more digital skills and practical technology applications.</li>
+                                <li><strong>Workforce Development:</strong> Increased investment in retraining and upskilling programs for workers in declining sectors.</li>
+                                <li><strong>Economic Policy:</strong> Policies should support sectors with growth potential while facilitating transitions for workers in declining industries.</li>
+                                <li><strong>Career Planning:</strong> Individuals should prioritize continuous learning and skill development to remain competitive.</li>
+                            </ul>
+                            <p>This project demonstrates how AI can accelerate labor market analysis, allowing for more timely and comprehensive insights than traditional methods.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="project-cta">
                         <a 
-                          class="pdf-button pdf-button-secondary" 
+                          class="pdf-button pdf-button-primary" 
                           href="https://github.com/ftalew211/My-repository2/raw/main/Job%20market%20%20analysis%20report.pdf" 
                           download="Job market analysis report.pdf"
                         >
@@ -1068,8 +1184,8 @@
                   </div>
                   
                   <div class="project-footer">
-                    <span>Project from Lesson 02: AI-Assisted Documents</span>
-                    <span>Date: Nov 8, 2025</span>
+                    <span>Project from Week 3: AI for Research & Literature Review</span>
+                    <span>Date: Nov 15, 2025</span>
                   </div>
                 </div>
               </label>
@@ -1077,8 +1193,8 @@
           </div>
 
           <div class="course-footer">
-            <span><strong>Status:</strong> Active & In Progress (Week 2/8)</span>
-            <span><strong>Next Lesson:</strong> AI for Research & Literature Review</span>
+            <span><strong>Status:</strong> Active & In Progress (Week 3/8)</span>
+            <span><strong>Next Lesson:</strong> AI for Data Analysis & Visualization</span>
           </div>
         </div>
       </div>
