@@ -824,7 +824,7 @@
           <div class="portrait-frame">
             <img
               class="hero__portrait"
-              src="./Ftalew Picture.jpg"
+              src="https://github.com/ftalew211/My-repository2/blob/main/Ftalew%20Picture.png?raw=true"
               alt="Portrait of Ftalew Dagnaw Gebreyesus"
               loading="lazy"
             />
@@ -993,7 +993,7 @@
                   
                   <div class="project-content">
                     <div class="project-image">
-                      <img src="./Ftalew Picture.jpg" alt="Ftalew Dagnaw" class="project-portrait">
+                      <img src="https://github.com/ftalew211/My-repository2/blob/main/Ftalew%20Picture.png?raw=true" alt="Ftalew Dagnaw" class="project-portrait">
                     </div>
                     
                     <div class="project-description">
@@ -1051,14 +1051,14 @@
                       <div class="project-cta">
                         <a 
                           class="pdf-button pdf-button-primary" 
-                          href="./relationship between GDP per capita and life expectancy_by_Ftalew_Dagnaw.pdf" 
+                          href="https://github.com/ftalew211/My-repository2/raw/main/relationship%20between%20GDP%20per%20capita%20and%20life%20expectancy_by_Ftalew_Dagnaw.pdf" 
                           download="relationship between GDP per capita and life expectancy_by_Ftalew_Dagnaw.pdf"
                         >
                           Download GDP Report (PDF)
                         </a>
                         <a 
                           class="pdf-button pdf-button-secondary" 
-                          href="./Job market analysis report.pdf" 
+                          href="https://github.com/ftalew211/My-repository2/raw/main/Job%20market%20%20analysis%20report.pdf" 
                           download="Job market analysis report.pdf"
                         >
                           Download Job Market Report (PDF)
