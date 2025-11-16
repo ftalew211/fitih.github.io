@@ -1381,7 +1381,7 @@
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
               </svg>
               <span>Email:</span>
-              <a href="mailto:ftalew.dagnaw@moh.gov.et">ftalewd211@gmail.com</a>
+              <a href="mailto:ftalew.dagnaw@moh.gov.et">ftalewd@gmail.com</a>
             </li>
             <li>
               <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
