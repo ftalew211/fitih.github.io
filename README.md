@@ -707,6 +707,84 @@
       margin-right: 0.5rem;
     }
 
+    /* Consultation Section Styles */
+    .consultation-intro {
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .consultation-intro p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .form-frame {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--card-border);
+    }
+
+    .consultation-services {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(140, 197, 255, 0.2);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .service-item {
+      background: rgba(5, 28, 96, 0.62);
+      border: 1px solid rgba(112, 181, 254, 0.28);
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .service-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(5, 55, 135, 0.3);
+    }
+
+    .service-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: rgba(107, 220, 255, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .service-item h4 {
+      margin: 0 0 0.8rem;
+      color: var(--accent-gold);
+    }
+
+    .service-item p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
     @media (max-width: 760px) {
       .nav__toggle {
         display: inline-flex;
@@ -759,6 +837,11 @@
         min-height: 300px;
         max-height: 400px;
       }
+
+      .form-frame {
+        width: 100%;
+        height: 600px;
+      }
     }
 
     @media (max-width: 580px) {
@@ -788,6 +871,10 @@
       .report-tabs {
         flex-direction: column;
       }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -814,6 +901,7 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#course">AI Bootcamp</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#consultation">Consultation</a></li>
       </ul>
     </div>
   </header>
@@ -1202,6 +1290,83 @@
       </div>
     </section>
 
+    <!-- New Consultation Section -->
+    <section class="section" id="consultation">
+      <div class="container card">
+        <h2>Contact for Consultation</h2>
+        
+        <div class="consultation-intro">
+          <p>
+            I offer specialized consulting services in health information systems, monitoring & evaluation frameworks, 
+            and data-driven public health strategies. Whether you need assistance with program evaluation, DHIS2 implementation, 
+            or developing comprehensive M&E systems, I can provide expert guidance tailored to your organization's needs.
+          </p>
+        </div>
+
+        <div class="form-container">
+          <div class="form-frame">
+            <iframe 
+              src="https://docs.google.com/forms/d/e/1FAIpQLSemfwYSrLW3iV2eWTbmpCyZc_kZsXPdiGXrO0dF6YV68Eg62g/viewform?embedded=true" 
+              width="100%" 
+              height="600" 
+              frameborder="0" 
+              marginheight="0" 
+              marginwidth="0"
+              title="Consultation Request Form"
+            >
+              Loading…
+            </iframe>
+          </div>
+        </div>
+
+        <div class="consultation-services">
+          <h3>Consultation Services</h3>
+          <div class="services-grid">
+            <div class="service-item">
+              <div class="service-icon">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <h4>M&E Framework Development</h4>
+              <p>Design comprehensive monitoring and evaluation frameworks aligned with program goals and indicators.</p>
+            </div>
+            
+            <div class="service-item">
+              <div class="service-icon">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <h4>Data Quality Assessment</h4>
+              <p>Evaluate and improve data collection processes, validation rules, and reporting accuracy.</p>
+            </div>
+            
+            <div class="service-item">
+              <div class="service-icon">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                  <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                </svg>
+              </div>
+              <h4>DHIS2 Implementation</h4>
+              <p>Customize and implement DHIS2 platforms for health information management and reporting.</p>
+            </div>
+            
+            <div class="service-item">
+              <div class="service-icon">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <h4>Capacity Building</h4>
+              <p>Train teams on M&E methodologies, data analysis, and utilization of health information systems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="contact">
       <div class="container grid grid--two">
         <article class="card contact-card">
@@ -1216,7 +1381,7 @@
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
               </svg>
               <span>Email:</span>
-              <a href="mailto:ftalew.dagnaw@moh.gov.et">ftalewd@gmail.com</a>
+              <a href="mailto:ftalew.dagnaw@moh.gov.et">ftalewd211@gmail.com</a>
             </li>
             <li>
               <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
